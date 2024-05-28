@@ -83,4 +83,17 @@
 
 
   </script>
+  <h1>{{ $project->name }}</h1>
+  <p>{{ $project->description }}</p>
+
+  <h2>Tecnologie Utilizzate</h2>
+  @if($project->technologies->isNotEmpty())
+      <ul>
+          @foreach ($project->technologies as $technology)
+              <li>{{ $technology->name }}</li>
+          @endforeach
+      </ul>
+  @else
+      <p>Nessuna tecnologia associata a questo progetto.</p>
+  @endif
 @endsection

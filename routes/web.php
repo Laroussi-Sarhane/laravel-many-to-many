@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\TypeController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,8 @@ use App\Http\Controllers\Admin\TypeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
+
 
 Route::get('/',[PageController::class,'index'])->name('home');
 
