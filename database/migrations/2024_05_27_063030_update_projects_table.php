@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->unsignedBigInteger('project_id')->nullable()->after('id');
+            $table->unsignedBigInteger('parent_project_id')->nullable()->after('id');
 
-            $table->foreign('project_id')
+            $table->foreign('parent_project_id')
                           ->references('id')
                           ->on('projects')
-                          ->onDelete('projects');
+                          ->onDelete('cascade');
 
 
 
@@ -33,10 +33,10 @@ return new class extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
 
-            $table->dropForeign('project_id');
+            $table->dropForeign(['parent_project_id']);
 
 
-            $table-> dropColumn('project_id');
+            $table-> dropColumn('parent_project_id');
 
 
 
