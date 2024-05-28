@@ -10,9 +10,9 @@ class project extends Model
 {
     use HasFactory;
 
-    //  protected $fillable= ['title', 'slug'];
-    public function project(){
-        return $this->belongsTo(Project::class);
+    public function technologies()
+{
+    return $this->belongsToMany(Technology::class);
+}
 
-    }
 }
